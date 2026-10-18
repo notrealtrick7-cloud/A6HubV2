@@ -46205,6 +46205,7 @@ end;
 end
 SetupDiscordInfoTab()
 local SetupVenyxPromoTab = function()
+    return -- Venyx tab removed
     local F;
     local F= MainWindow;
     local i,k,Y,z,A,e,Z,R,W=F:CreateTab({Name="Venyx",Side="Right",SectionsExpanded=true}):CreateSection({Name="Venyx",Expanded=true}),"https://raw.githubusercontent.com/tienkhanh1/Venyx/main/VenyxHub","loadstring(game:HttpGet(\"https://raw.githubusercontent.com/tienkhanh1/Venyx/main/VenyxHub\"))()",0.0909,0,"#FFFFFF","#E4E6EC","#14151A","rbxasset://fonts/families/Montserrat.json";
@@ -46527,7 +46528,7 @@ else i:CreateText({Name="Venyx",Text="Venyx - A6 Hub V2, keyless. Smoother, fast
     i:CreateButton({Name="Try Venyx Now",Callback=O});
 end;
 end
-SetupVenyxPromoTab()
+-- SetupVenyxPromoTab() -- removed
 local SetupFloatingQuickButtonsModule = function()
     local F,i,k,Y="rbxassetid://128961717706452",56,0.035,8;
     local z=TweenInfo.new(0.08,Enum.EasingStyle.Quad,Enum.EasingDirection.Out);
@@ -48797,7 +48798,7 @@ local SetupA6ShowChatModule = function()
         end
         loc_18 += 1
         local myToken = loc_18
-        loc_3.Text = string.format("<font color=\"#ff3b3b\">%s</font> : %s", loc_29(tmp_2_1), loc_29(tmp_1))
+        loc_3.Text = string.format("<font color=\"#8a8a96\">%s</font> : %s", loc_29(tmp_2_1), loc_29(tmp_1))
         loc_7.Text = loc_29(tmp_2_1) .. " : " .. loc_29(tmp_1)
         loc_26(true, 0.25)
         task.delay(delaySec, function()
