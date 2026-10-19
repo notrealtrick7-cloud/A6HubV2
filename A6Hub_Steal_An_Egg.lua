@@ -119,6 +119,15 @@ end;
 end;
 end
 SetupLoadingScreenOverlay()
+
+-- force finish loading UI if stuck
+task.spawn(function()
+    task.wait(12)
+    local F = typeof(getgenv)=="function" and getgenv() or _G
+    if type(F.A6HubLoadStep)=="function" then
+        pcall(F.A6HubLoadStep, 10)
+    end
+end)
 local LogBootstrapWarning = function(F)
     local O=typeof(getgenv)=="function"and getgenv()or _G;
     if type(O.A6DebugPrint)=="function"then pcall(O.A6DebugPrint,F);
@@ -156,7 +165,7 @@ local LoadA6Library = function()
                         table.move(d, 1, d.n, I + 1, O) end) (d[24],0,workspace.CurrentCamera);
                         d[24].n=1;
                         d[6]=d[24][1];
-                        assert(d[1],"A6Library chi co the chay mot lan o phia client");
+                        if not d[1] then warn("[A6] LocalPlayer missing"); return end;
                         d[25]={};
                         (function(F, O, I) for d = 1, I.n, 1 do F[O + d] = I[d] end;
                         F.n = O + I.n end) (d[25],0, table.pack (d[1]:WaitForChild("PlayerGui")));
@@ -215,8 +224,7 @@ local LoadA6Library = function()
                         end));
                         d[14]=d[35][1];
                         d[1]=d[35][2];
-                        if not d[14]then error("A6Library requires write access to "..d[12].."; PlayerGui fallback is disabled: "..tostring(d[1]),0);
-                        end;
+                        if not d[14] then warn("[A6] write access: " .. tostring(d[12])); return end;
                         d[16]=function()
                             local I=Instance.new("MeshPart");
                             I.Name="Spider";
@@ -11666,7 +11674,7 @@ for loc_4 = 1, 6 do
     LogBootstrapWarning("library load attempt " .. loc_4 .. " failed: " .. loc_8)
     task.wait(1 + loc_4 * 0.5)
 end
-error("A6 Library failed to load: " .. loc_8, 0)
+warn("[A6] Library failed to load: " .. tostring(loc_8)); return
 end
 A6Library = LoadA6Library()
 end
@@ -11677,7 +11685,7 @@ do
         isLibraryApiValid = type(A6Library.CreateWindow) == "function"
         isLibraryApiValid = isLibraryApiValid and type(A6Library.Finalize) == "function"
     end
-    assertValidApi(isLibraryApiValid, "A6 Library returned an invalid API.")
+    if not isLibraryApiValid then warn("[A6] Library API invalid"); return end
 end
 A6Library.ManualQuickDefaults = {
     PinnedFeatures = { "Player > Movement > Speed Boost", "Player > Movement > Boost Speed" },
