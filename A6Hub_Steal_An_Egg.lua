@@ -461,7 +461,7 @@ local LoadA6Library = function()
             pcall(d[18],d[19].obj9,"Visible",true);
             pcall(d[18],d[19].obj9,"Active",false);
             pcall(d[18],d[19].obj9,"AnchorPoint",Vector2.new(0.5,0.5));
-            pcall(d[18],d[19].obj9,"BackgroundColor3",Color3.fromRGB(239,220,203));
+            pcall(d[18],d[19].obj9,"BackgroundColor3",Color3.fromRGB(227,235,250));
             pcall(d[18],d[19].obj9,"BackgroundTransparency",1);
             pcall(d[18],d[19].obj9,"BorderColor3",Color3.fromRGB(0,0,0));
             pcall(d[18],d[19].obj9,"BorderSizePixel",0);
@@ -719,7 +719,7 @@ local LoadA6Library = function()
             pcall(d[18],d[19].obj20,"Visible",true);
             pcall(d[18],d[19].obj20,"Active",false);
             pcall(d[18],d[19].obj20,"AnchorPoint",Vector2.new(0.5,0.5));
-            pcall(d[18],d[19].obj20,"BackgroundColor3",Color3.fromRGB(239,220,203));
+            pcall(d[18],d[19].obj20,"BackgroundColor3",Color3.fromRGB(227,235,250));
             pcall(d[18],d[19].obj20,"BackgroundTransparency",1);
             pcall(d[18],d[19].obj20,"BorderColor3",Color3.fromRGB(0,0,0));
             pcall(d[18],d[19].obj20,"BorderSizePixel",0);
@@ -2003,8 +2003,8 @@ local function _(q)q.FontFace=U;
     V(v);
     p(v,Color3.fromRGB(0,0,0),0.07999999821186066);
 end;
-local V=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,193,194)),ColorSequenceKeypoint.new(0.0570934266,Color3.fromRGB(255,132,123)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
-local P=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,193,194)),ColorSequenceKeypoint.new(0.0155709349,Color3.fromRGB(255,132,123)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
+local V=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(221,230,244)),ColorSequenceKeypoint.new(0.0570934266,Color3.fromRGB(184,191,204)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
+local P=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(221,230,244)),ColorSequenceKeypoint.new(0.0155709349,Color3.fromRGB(184,191,204)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
 local function p(q,v,c)local C=Instance.new("UIGradient");
     C.Name=v;
     C.Color=c;
@@ -12221,9 +12221,9 @@ local SetupTaskSchedulerModule = function()
     GameModules.GhostDogSection = FarmTab:CreateSection({ Name = "Ghost Dog & Fishing", Expanded = false })
     GameModules.TrainSection = FarmTab:CreateSection({ Name = "Phantom Express", Expanded = false })
     GameModules.IslandWarsSection = FarmTab:CreateSection({ Name = "Cursed Island Wars", Expanded = false })
-    GameModules.RaceSection = FarmTab:CreateSection({ Name = "Racing Event", Expanded = false })
+    -- GameModules.RaceSection = FarmTab:CreateSection({ Name = "Racing Event", Expanded = false }) -- expired
     GameModules.StarSection = FarmTab:CreateSection({ Name = "Shooting Star", Expanded = false })
-    GameModules.LabSection = FarmTab:CreateSection({ Name = "Dr Scramble Lab", Expanded = false })
+    -- GameModules.LabSection = FarmTab:CreateSection({ Name = "Dr Scramble Lab", Expanded = false }) -- expired
     GameModules.ButterflySection = FarmTab:CreateSection({ Name = "Butterfly Bloom", Expanded = false })
     GameModules.WispSection = FarmTab:CreateSection({ Name = "Wisp Companion", Expanded = false })
     local AutoStealSection
@@ -12237,7 +12237,13 @@ local SetupTaskSchedulerModule = function()
     AutoHatchSection = FarmTab:CreateSection({ Name = "Auto Hatch & Equip", Expanded = false })
     local AutoSellSection
     AutoSellSection = FarmTab:CreateSection({ Name = "Auto Sell", Expanded = false })
-    GameModules.SellLabSection = FarmTab:CreateSection({ Name = "Auto Sell Lab Egg", Expanded = false })
+    -- GameModules.SellLabSection = FarmTab:CreateSection({ Name = "Auto Sell Lab Egg", Expanded = false }) -- expired
+
+-- Dummy sections for expired events (prevent nil errors)
+if not GameModules.RaceSection then GameModules.RaceSection = { CreateToggle=function() end, CreateDropdown=function() end, CreateSlider=function() end, CreateButton=function() end, CreateLabel=function() end, CreateParagraph=function() end } end
+if not GameModules.LabSection then GameModules.LabSection = { CreateToggle=function() end, CreateDropdown=function() end, CreateSlider=function() end, CreateButton=function() end, CreateLabel=function() end, CreateParagraph=function() end } end
+if not GameModules.SellLabSection then GameModules.SellLabSection = { CreateToggle=function() end, CreateDropdown=function() end, CreateSlider=function() end, CreateButton=function() end, CreateLabel=function() end, CreateParagraph=function() end } end
+
     local AutoFuseSection
     AutoFuseSection = FarmTab:CreateSection({ Name = "Auto Fuse Machine", Expanded = false })
     local AutoFavoriteSection
@@ -12531,14 +12537,14 @@ local SetupFeatureCoordinator = function()
     local t=Color3.fromRGB(62,64,84);
     local M=Color3.fromRGB(196,202,222);
     local B={Color3.fromRGB(150,255,110),Color3.fromRGB(40,200,60)};
-    local o={Color3.fromRGB(255,196,60),Color3.fromRGB(50,50,58)};
-    local z={{Color3.fromRGB(255,240,150),Color3.fromRGB(255,176,30)},{Color3.fromRGB(245,248,255),Color3.fromRGB(160,170,190)},{Color3.fromRGB(255,200,150),Color3.fromRGB(190,110,50)}};
+    local o={Color3.fromRGB(184,191,204),Color3.fromRGB(50,50,58)};
+    local z={{Color3.fromRGB(255,240,150),Color3.fromRGB(170,176,188)},{Color3.fromRGB(245,248,255),Color3.fromRGB(160,170,190)},{Color3.fromRGB(210,218,232),Color3.fromRGB(140,144,154)}};
     local l={Color3.fromRGB(96,100,124),Color3.fromRGB(52,54,70)};
-    local h={Star={Sub="Catch your Shooting Star when one lands",Icon="rbxassetid://118070800707365",Color=Color3.fromRGB(255,238,140)},StealFilter={Sub="Filter eggs and Halloween eggs, taking turns",Icon="rbxassetid://97499770821177",Color=Color3.fromRGB(77,255,122)},StealIndex={Sub="Eggs your Index still needs",Icon="rbxassetid://72512465543867",Color=Color3.fromRGB(127,216,255)},Place={Sub="Put your eggs on the nests",Icon="rbxassetid://112223455192501",Color=Color3.fromRGB(255,194,77)},Treadmill={Sub="Auto Treadmill and the Admin Treadmill",Icon="rbxassetid://116351329433541",Color=Color3.fromRGB(255,140,70)},Butterfly={Sub="Catch butterflies in the Butterfly Bloom event",Icon="rbxassetid://131116540264095",Color=Color3.fromRGB(120,230,255)},Essence={Sub="Use Fractured, Scrambled, Enchanted and Nitro on your eggs",Icon="rbxassetid://114750647204247",Color=Color3.fromRGB(90,235,255)},StealWisp={Sub="Eggs your Wisp quest needs",Icon="rbxassetid://117266037162644",Color=Color3.fromRGB(150,255,220)},Train={Sub="Ride the train and catch ghosts",Icon="rbxassetid://83798853441239",Color=Color3.fromRGB(190,140,255)},HwPumpkin={Sub="Catch runaway pumpkins in the Pumpkin Moon",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(255,150,50)},HwDog={Sub="Finish the Ghost Dog quest",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(200,220,255)},HwMonsters={Sub="Kill Halloween monsters for Candy Corn",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(58,58,68)},HwFishing={Sub="Fish in the Halloween Dimension",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(110,200,255)}};
+    local h={Star={Sub="Catch your Shooting Star when one lands",Icon="rbxassetid://118070800707365",Color=Color3.fromRGB(255,238,140)},StealFilter={Sub="Filter eggs and Halloween eggs, taking turns",Icon="rbxassetid://97499770821177",Color=Color3.fromRGB(77,255,122)},StealIndex={Sub="Eggs your Index still needs",Icon="rbxassetid://72512465543867",Color=Color3.fromRGB(127,216,255)},Place={Sub="Put your eggs on the nests",Icon="rbxassetid://112223455192501",Color=Color3.fromRGB(188,196,209)},Treadmill={Sub="Auto Treadmill and the Admin Treadmill",Icon="rbxassetid://116351329433541",Color=Color3.fromRGB(171,178,190)},Butterfly={Sub="Catch butterflies in the Butterfly Bloom event",Icon="rbxassetid://131116540264095",Color=Color3.fromRGB(120,230,255)},Essence={Sub="Use Fractured, Scrambled, Enchanted and Nitro on your eggs",Icon="rbxassetid://114750647204247",Color=Color3.fromRGB(90,235,255)},StealWisp={Sub="Eggs your Wisp quest needs",Icon="rbxassetid://117266037162644",Color=Color3.fromRGB(150,255,220)},Train={Sub="Ride the train and catch ghosts",Icon="rbxassetid://83798853441239",Color=Color3.fromRGB(205,213,227)},HwPumpkin={Sub="Catch runaway pumpkins in the Pumpkin Moon",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(168,174,186)},HwDog={Sub="Finish the Ghost Dog quest",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(200,220,255)},HwMonsters={Sub="Kill Halloween monsters for Candy Corn",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(58,58,68)},HwFishing={Sub="Fish in the Halloween Dimension",Icon="rbxassetid://112785428441728",Color=Color3.fromRGB(110,200,255)}};
     local function i(a,I)local r,m=pcall(Font.new,a,I,Enum.FontStyle.Normal);
     return r and m or nil;
     end;
-    local a=i("rbxassetid://12187365977",Enum.FontWeight.Bold)or i("rbxasset://fonts/families/FredokaOne.json",Enum.FontWeight.Regular);
+    local a=i("rbxassetid://123931707434013",Enum.FontWeight.Bold)or i("rbxasset://fonts/families/FredokaOne.json",Enum.FontWeight.Regular);
     i("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.ExtraBold);
     local I=i("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.Medium);
     local function r(m,e,J)local O=Instance.new(m);
@@ -14682,7 +14688,7 @@ o,J.SafeCarry.V2Handle= AutoStealSection , AutoStealSection :CreateToggle({Name=
                                                 if v.Toggle(s.V2Handle,false)==true then B(true);
                                                 end;
                                             end;
-                                            if not(pcall(r.Show,{Title="Instant Steal V2",Warn="WARNING",Body="Instant Steal V2 may not work well below 40 FPS or above 200 ms ping.\10Using it with Invisibility may cause some bugs.",Tip=string.format("<font size=\"18\"><font color=\"#D8D8D8\">Your FPS </font><font color=\"%s\"><b>%d</b></font><font color=\"#D8D8D8\">   Your Ping </font><font color=\"%s\"><b>%d ms</b></font></font>",P>=40 and"#5BE873"or"#FF4B4B",math.floor(P+0.5),_<=200 and"#5BE873"or"#FF4B4B",math.floor(_+0.5)),Cancel="Cancel",Accept="Turn On"},q,function()
+                                            if not(pcall(r.Show,{Title="Instant Steal V2",Warn="WARNING",Body="Instant Steal V2 may not work well below 40 FPS or above 200 ms ping.\10Using it with Invisibility may cause some bugs.",Tip=string.format("<font size=\"18\"><font color=\"#D8D8D8\">Your FPS </font><font color=\"%s\"><b>%d</b></font><font color=\"#D8D8D8\">   Your Ping </font><font color=\"%s\"><b>%d ms</b></font></font>",P>=40 and"#5BE873"or"#C8C8D0",math.floor(P+0.5),_<=200 and"#5BE873"or"#C8C8D0",math.floor(_+0.5)),Cancel="Cancel",Accept="Turn On"},q,function()
                                                 s.V2Asking=false;
                                                 pcall(function()
                                                     s.V2Handle:Set(false);
@@ -24240,8 +24246,8 @@ local CreateHopPromptModule = function()
         local m=Font.new("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.ExtraBold,Enum.FontStyle.Normal);
         local L=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.486,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.519,Color3.fromRGB(221,221,221)),ColorSequenceKeypoint.new(1,Color3.fromRGB(236,236,236))});
         local j=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(0,36,84)),ColorSequenceKeypoint.new(1,Color3.fromRGB(0,31,54))});
-        local X=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,193,194)),ColorSequenceKeypoint.new(0.057,Color3.fromRGB(255,132,123)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
-        local U=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,193,194)),ColorSequenceKeypoint.new(0.015,Color3.fromRGB(255,132,123)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
+        local X=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(221,230,244)),ColorSequenceKeypoint.new(0.057,Color3.fromRGB(184,191,204)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
+        local U=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(221,230,244)),ColorSequenceKeypoint.new(0.015,Color3.fromRGB(184,191,204)),ColorSequenceKeypoint.new(1,Color3.fromRGB(40,40,48))});
         local a=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(92,94,106)),ColorSequenceKeypoint.new(0.057,Color3.fromRGB(70,71,82)),ColorSequenceKeypoint.new(1,Color3.fromRGB(38,39,46))});
         local function g(M,f,T,h)local S=Instance.new("UIStroke");
             local E;
@@ -24366,7 +24372,7 @@ local CreateHopPromptModule = function()
             S.Parent=h;
             f(S,17);
             S.TextColor3=Color3.fromRGB(70,70,80);
-            M(S,ColorSequence.new(Color3.fromRGB(255,132,123),Color3.fromRGB(40,40,48)),90);
+            M(S,ColorSequence.new(Color3.fromRGB(184,191,204),Color3.fromRGB(40,40,48)),90);
             t(S,N("Warn"));
             j,z=Instance.new("TextLabel"), GenerateRandomGuiId;
             j.Name=z();
@@ -24394,7 +24400,7 @@ local CreateHopPromptModule = function()
             E.Parent=h;
             f(E,14);
             E.LineHeight=1.12;
-            E.TextColor3=Color3.fromRGB(255,176,120);
+            E.TextColor3=Color3.fromRGB(195,203,216);
             E.RichText=true;
             t(E,N("Tip"));
             local function f(J,G,V)local P,p=Instance.new("TextButton"), GenerateRandomGuiId;
@@ -25541,7 +25547,7 @@ end;
 if type(O.CreateCanvas)~="function"then Z.Row=O:CreateText({Name="Butterfly Status",Text="Off"});
 end;
 local d,N=type(O.CreateCanvas)=="function";
-if d then local N,t={{Key="Green",Icon="rbxassetid://107744695034799",Color="#5BE873"},{Key="Blue",Icon="rbxassetid://89995151383384",Color="#5FA2FF"},{Key="Purple",Icon="rbxassetid://121235713836098",Color="#C27BFF"},{Key="Golden",Icon="rbxassetid://98126365702697",Color="#FFD452"},{Key="Essence",Icon="rbxassetid://114750647204247",Color="#6FF0FF"}},{};
+if d then local N,t={{Key="Green",Icon="rbxassetid://107744695034799",Color="#5BE873"},{Key="Blue",Icon="rbxassetid://89995151383384",Color="#5FA2FF"},{Key="Purple",Icon="rbxassetid://121235713836098",Color="#C27BFF"},{Key="Golden",Icon="rbxassetid://98126365702697",Color="#D8D8E0"},{Key="Essence",Icon="rbxassetid://114750647204247",Color="#6FF0FF"}},{};
     local W=O:CreateCanvas({Name="Butterflies",ShowTitle=false,Layout="free",Style={TextScale=1,LineHeight=1.1,MinLines=3.3,MaxLines=3.3,AutoHeight=true,BackgroundTransparency=0.35,TextColor=Color3.fromRGB(255,255,255),TextStrokeTransparency=0.7},Build=function(m)
             Z.StatusUi=m:Text({X=0.7,Y=0.15,Width=1,Height=1.1,Scale=1,Wrap=false,Text="Off",Color="#FFFFFF",TextStrokeTransparency=0.6});
             local g={};
@@ -28231,7 +28237,7 @@ local function F()local S=j;
                         N=Font.new("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.ExtraBold,Enum.FontStyle.Normal);
                     end);
                     pcall(function()
-                        t=Font.new("rbxassetid://12187365977",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
+                        t=Font.new("rbxassetid://123931707434013",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
                     end);
                     t=t or N;
                     local i,k,Y,z,A,e,Z,R,W=0.7,1.9,2.6,2.1,0.95,5.6,0.0909,8,"#9AA3B5";
@@ -29508,7 +29514,7 @@ local function W()local m=workspace:FindFirstChild("AdminTreadmill");
 end;
 return R.AngelicTreadmill;
 end;
-local R,m={live={"LIVE","#4DFF7A"},active={"ACTIVE","#4DFF7A"},ready={"READY","#7FD8FF"},wait={"WAITING","#FFC24D"},off={"OFF","#9AA3B5"}},{};
+local R,m={live={"LIVE","#4DFF7A"},active={"ACTIVE","#4DFF7A"},ready={"READY","#7FD8FF"},wait={"WAITING","#D4D4DC"},off={"OFF","#9AA3B5"}},{};
 local function L(j)local X=e[j];
     if not X then return nil;
     end;
@@ -29737,7 +29743,7 @@ local function A(j)local X;
             local F=#R();
             if I()or Y()or k()then return{Text="ADMIN ABUSE LIVE",Color="#4DFF7A",Right=F>0 and F..(F==1 and" boost"or" boosts")or""};
             end;
-            return{Text="NO ADMIN EVENT RIGHT NOW",Color="#FF6B6B",Right=""};
+            return{Text="NO ADMIN EVENT RIGHT NOW",Color="#C4C4CC",Right=""};
         end;
     end;
 end
@@ -36001,7 +36007,7 @@ local SetupEggEspModule = function()
     local O=18;
     local W,m,L,j,X,U,a,g=1/0,{"Icon","Name","Rarity","Mutation","Value","Weight","Size","Sell Price","Distance","Area","State"},{"Icon","Name","Value"},{"Off","Rare Only","All Shown"},"Any Mutation","No Mutation",{Icon=3.2,Name=1.35,Rarity=1.2,Mutation=1,Value=1.1,Info=1};
     local g,M=(function()
-        local f,T=pcall(Font.new,"rbxassetid://12187365977",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
+        local f,T=pcall(Font.new,"rbxassetid://123931707434013",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
         local h,S=f and T;
         if h then S=h;
         else f= EspController;
@@ -36024,15 +36030,15 @@ local SetupEggEspModule = function()
     M.Outline=Color3.fromRGB(214,222,232);
     B.Silver=M;
     _= EspController;
-    B.Sakura=_.PaletteFromColor(Color3.fromRGB(255,158,216));
+    B.Sakura=_.PaletteFromColor(Color3.fromRGB(217,225,240));
     E= EspController;
     B.GreatBloom=E.PaletteFromColor(Color3.fromRGB(124,255,196));
     M= EspController;
     B.Boss=M.PaletteFromColor(Color3.fromRGB(55,55,65));
     T= EspController;
-    B.Monstrous=T.PaletteFromColor(Color3.fromRGB(192,139,255));
+    B.Monstrous=T.PaletteFromColor(Color3.fromRGB(205,213,227));
     T,M={}, EspController;
-    T.Text=M.Sequence({{0,Color3.fromRGB(60,60,70)},{0.2,Color3.fromRGB(255,179,107)},{0.4,Color3.fromRGB(255,240,107)},{0.6,Color3.fromRGB(107,255,138)},{0.8,Color3.fromRGB(107,200,255)},{1,Color3.fromRGB(185,107,255)}});
+    T.Text=M.Sequence({{0,Color3.fromRGB(60,60,70)},{0.2,Color3.fromRGB(193,200,213)},{0.4,Color3.fromRGB(210,218,232)},{0.6,Color3.fromRGB(107,255,138)},{0.8,Color3.fromRGB(107,200,255)},{1,Color3.fromRGB(194,202,215)}});
     _= EspController;
     T.Stroke=_.Sequence({{0,Color3.fromRGB(20,20,30)},{1,Color3.fromRGB(8,8,12)}});
     T.Outline=Color3.fromRGB(255,255,255);
@@ -36923,7 +36929,7 @@ SetupGuardEspModule()
 local SetupPlayerEspModule = function()
     local F=game:GetService("TextService");
     local k=Font.new("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.ExtraBold,Enum.FontStyle.Normal);
-    local Y=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(138,255,205)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(125,225,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(210,135,255))});
+    local Y=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(138,255,205)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(125,225,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(210,218,232))});
     local z,A,e,Z,R=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(7,73,66)),ColorSequenceKeypoint.new(1,Color3.fromRGB(35,17,79))}),1,false,0;
     local W,m,L,j,X,U,a={},{},{},{},0.75,{Name=true,Username=false,Avatar=false,Tool=true};
     local g,M=false,false;
@@ -38719,14 +38725,14 @@ do
         k= PredictorState;
         k.Bullet=utf8.char(8226);
         F= PredictorState;
-        F.Color={Text="#FFFFFF",Income="#4DFF7A",Clock="#FFC24D",Ready="#4DFF7A",Growing="#FFC24D",Inventory="#7FD8FF",Weight="#CDE7FF",Scale="#FFDF8A",Separator="#7A8CC0",Hint="#9FB8FF"};
+        F.Color={Text="#FFFFFF",Income="#4DFF7A",Clock="#D4D4DC",Ready="#4DFF7A",Growing="#D4D4DC",Inventory="#7FD8FF",Weight="#CDE7FF",Scale="#E0E0E8",Separator="#7A8CC0",Hint="#9FB8FF"};
         local function I(Y,z)local A,e=pcall(Font.new,Y,z,Enum.FontStyle.Normal);
             return A and e or nil;
         end;
         k= PredictorState;
         k.NameFont=I("rbxasset://fonts/families/GothamSSm.json",Enum.FontWeight.ExtraBold);
         F= PredictorState;
-        F.RarityFont=I("rbxassetid://12187365977",Enum.FontWeight.Bold)or I("rbxasset://fonts/families/FredokaOne.json",Enum.FontWeight.Regular);
+        F.RarityFont=I("rbxassetid://123931707434013",Enum.FontWeight.Bold)or I("rbxasset://fonts/families/FredokaOne.json",Enum.FontWeight.Regular);
         local I,Y= PredictorState;
         k= EspController;
         I.NameGradient=k.Sequence({{0,Color3.fromRGB(255,255,255)},{0.5,Color3.fromRGB(222,238,255)},{1,Color3.fromRGB(255,255,255)}});
@@ -38799,7 +38805,7 @@ do
     end;
     return 1;
 end;
-local F,d,k={Golden="#FFD34D",Silver="#E6EEF7",Sakura="#FF9ED8",GreatBloom="#7CFFC4",Boss="#FF7A7A",Monstrous="#C08BFF"},{"#FF6B6B","#FFB36B","#FFF06B","#6BFF8A","#6BC8FF","#B96BFF"}, PredictorState;
+local F,d,k={Golden="#D8D8E0",Silver="#E6EEF7",Sakura="#D0D0D8",GreatBloom="#7CFFC4",Boss="#C8C8D0",Monstrous="#C08BFF"},{"#C4C4CC","#D0D0D8","#E0E0E8","#6BFF8A","#6BC8FF","#B96BFF"}, PredictorState;
 k.MutationText=function(k)
     local Y,z={},type(k)=="table";
     if z then local z=ipairs;
@@ -38914,14 +38920,14 @@ end
 InitPredictorCanvasState()
 local SetupEggPredictorModule = function()
     local O={"Value","Rarity","Time Left"};
-    local e={{Key="All",Title="ALL",Colors={Color3.fromRGB(255,255,255),Color3.fromRGB(176,188,220)}},{Key="Ready",Title="READY",Colors={Color3.fromRGB(170,255,150),Color3.fromRGB(40,220,90)}},{Key="Growing",Title="GROWING",Colors={Color3.fromRGB(255,232,150),Color3.fromRGB(255,150,40)}},{Key="Inventory",Title="IN BAG",Colors={Color3.fromRGB(180,232,255),Color3.fromRGB(70,160,255)}}};
-    local Z,R,W,m,L,j,X,U,a,g={Ready={Fill={Color3.fromRGB(170,255,150),Color3.fromRGB(30,205,85)},Button="HATCH NOW"},Growing={Fill={Color3.fromRGB(255,225,120),Color3.fromRGB(55,55,65)},Button="FLY TO EGG"},Inventory={Fill={Color3.fromRGB(160,225,255),Color3.fromRGB(60,140,255)},Button="HOLD EGG"}},1,40,12,7.6,"rbxassetid://90325592797235","rbxassetid://97499770821177","rbxassetid://119640363267627","rbxassetid://123238464128459","rbxassetid://70598530577515";
+    local e={{Key="All",Title="ALL",Colors={Color3.fromRGB(255,255,255),Color3.fromRGB(176,188,220)}},{Key="Ready",Title="READY",Colors={Color3.fromRGB(170,255,150),Color3.fromRGB(40,220,90)}},{Key="Growing",Title="GROWING",Colors={Color3.fromRGB(255,232,150),Color3.fromRGB(165,172,184)}},{Key="Inventory",Title="IN BAG",Colors={Color3.fromRGB(180,232,255),Color3.fromRGB(70,160,255)}}};
+    local Z,R,W,m,L,j,X,U,a,g={Ready={Fill={Color3.fromRGB(170,255,150),Color3.fromRGB(30,205,85)},Button="HATCH NOW"},Growing={Fill={Color3.fromRGB(210,218,232),Color3.fromRGB(55,55,65)},Button="FLY TO EGG"},Inventory={Fill={Color3.fromRGB(160,225,255),Color3.fromRGB(60,140,255)},Button="HOLD EGG"}},1,40,12,7.6,"rbxassetid://90325592797235","rbxassetid://97499770821177","rbxassetid://119640363267627","rbxassetid://123238464128459","rbxassetid://70598530577515";
     local M=Color3.new(1,1,1);
     local f=Color3.new(0,0,0);
     local T=Color3.fromRGB(18,18,26);
     local h=Color3.fromRGB(214,218,236);
     local S=Color3.fromRGB(62,64,84);
-    local E=Color3.fromRGB(255,214,90);
+    local E=Color3.fromRGB(198,205,219);
     local D={Color3.fromRGB(170,255,140),Color3.fromRGB(40,230,90)};
     local J,G={Sort=O[1],Spotlight=true,Filter="All"};
     local V,P,p,s,r,B,_,q,v,c=true,0,false;
@@ -39040,7 +39046,7 @@ local tr={};
 local function ir(kr)local Yr=tostring(kr.Category);
     if tr[Yr]then return tr[Yr];
     end;
-    if string.upper(tostring(kr.Rarity))=="ETERNAL"then local zr=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(196,222,255)),ColorSequenceKeypoint.new(0.45,Color3.fromRGB(246,242,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(214,180,255))});
+    if string.upper(tostring(kr.Rarity))=="ETERNAL"then local zr=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(196,222,255)),ColorSequenceKeypoint.new(0.45,Color3.fromRGB(246,242,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(223,232,246))});
         tr[Yr]=zr;
         return zr;
     end;
@@ -39237,10 +39243,10 @@ for mr,Lr in Wr(er)do Yr=type(Lr)=="table";
                 end;
                 return string.find(Ar,zr,1,true)~=nil;
             end;
-            local Yr={Golden={Color3.fromRGB(255,246,170),Color3.fromRGB(255,184,0)},Silver={Color3.fromRGB(255,255,255),Color3.fromRGB(160,176,200)},Sakura={Color3.fromRGB(255,214,236),Color3.fromRGB(255,110,190)},GreatBloom={Color3.fromRGB(205,255,230),Color3.fromRGB(60,225,150)},Boss={Color3.fromRGB(255,190,190),Color3.fromRGB(65,65,75)},Monstrous={Color3.fromRGB(228,204,255),Color3.fromRGB(150,90,255)},Scrambled={Color3.fromRGB(215,255,160),Color3.fromRGB(40,215,170)}};
+            local Yr={Golden={Color3.fromRGB(255,246,170),Color3.fromRGB(164,170,182)},Silver={Color3.fromRGB(255,255,255),Color3.fromRGB(160,176,200)},Sakura={Color3.fromRGB(239,248,255),Color3.fromRGB(197,204,218)},GreatBloom={Color3.fromRGB(205,255,230),Color3.fromRGB(60,225,150)},Boss={Color3.fromRGB(219,227,242),Color3.fromRGB(65,65,75)},Monstrous={Color3.fromRGB(228,204,255),Color3.fromRGB(150,90,255)},Scrambled={Color3.fromRGB(215,255,160),Color3.fromRGB(40,215,170)}};
             local zr={Color3.fromRGB(215,245,255),Color3.fromRGB(80,190,255)};
-            local Ar=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(58,58,68)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,190,90)),ColorSequenceKeypoint.new(0.4,Color3.fromRGB(255,245,110)),ColorSequenceKeypoint.new(0.6,Color3.fromRGB(120,255,150)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(110,200,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(200,120,255))});
-            local er={Color3.fromRGB(255,244,190),Color3.fromRGB(255,196,60)};
+            local Ar=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(58,58,68)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(191,198,211)),ColorSequenceKeypoint.new(0.4,Color3.fromRGB(212,220,234)),ColorSequenceKeypoint.new(0.6,Color3.fromRGB(120,255,150)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(110,200,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(202,210,223))});
+            local er={Color3.fromRGB(255,244,190),Color3.fromRGB(184,191,204)};
             local Zr={Color3.fromRGB(235,250,255),Color3.fromRGB(110,200,255)};
             local function Rr(Wr)local mr;
                 local mr= GetMutationDisplayName;
@@ -40104,7 +40110,7 @@ local SetupLabPredictorModule = function()
         local g;
         local g= ReplicatedStorageService;
         return g.Data.ScrambleTradeIn;
-    end),8,2000,30,{Biohazard="#9DFF4D",Experimental="#5AD8FF",UnstableDNA="#FF6BD5"};
+    end),8,2000,30,{Biohazard="#9DFF4D",Experimental="#5AD8FF",UnstableDNA="#C8C8D0"};
     local o,g,M=false,0,{Banner={},Odds={},Chance={},Clears=0};
     local function f(h)return U[tostring(h)]or R.Text;
     end;
@@ -40166,7 +40172,7 @@ local function S(P)local s=M.Banner[P];
                         end;
                         return string.format("%dh %02dm",Q,n);
                     end;
-                    local function q(v)return e(z(v>=10 and R.Income or(v>=1 and R.Clock or"#FF7A7A"),(string.format(v>=1 and"%.1f%%"or"%.2f%%",v))));
+                    local function q(v)return e(z(v>=10 and R.Income or(v>=1 and R.Clock or"#C8C8D0"),(string.format(v>=1 and"%.1f%%"or"%.2f%%",v))));
                     end;
                     local function v(Q)if Q<=0 then return"";
                     end;
@@ -40229,7 +40235,7 @@ local function S(P)local s=M.Banner[P];
                         n=type(T)=="table";
                         if n then b=T.BannerId==t;
                             if b then W=T.Unlocked==false;
-                                if W then table.insert(x,z("#FF7A7A","Locked on this account"));
+                                if W then table.insert(x,z("#C8C8D0","Locked on this account"));
                                 else table.insert(x,z(R.Hint,"Pity ")..e(z(R.Text,string.format("%s/%s",tostring(T.PityCount or 0),tostring(T.PityThreshold or 0)))).. PredictorState .Separator()..z(R.Hint,"Free rerolls ")..e(z(R.Text,tostring(T.FreeRefreshesRemaining or 0))));
                                 end;
                             end;
@@ -40403,7 +40409,7 @@ local function S(P)local s=M.Banner[P];
                         local P=-1;
                         local p=-1;
                         local s,r,B,_,q,v=-1,4,3,false,0;
-                        local c={{Min=0,Color="#8F98A8"},{Min=0.3,Color="#C6CDDA"},{Min=0.85,Color="#FFFFFF"},{Min=1.45,Color="#7CFF9E"},{Min=1.9,Color="#4FE0FF"},{Min=2.85,Color="#6FA0FF"},{Min=3.8,Color="#C08BFF"},{Min=5.8,Color="#FF9A3D"},{Min=9.5,Color="#FF5C5C"},{Min=12,Color="#FFD34D"},{Min=20,Color="#FF4DE8"}};
+                        local c={{Min=0,Color="#8F98A8"},{Min=0.3,Color="#C6CDDA"},{Min=0.85,Color="#FFFFFF"},{Min=1.45,Color="#7CFF9E"},{Min=1.9,Color="#4FE0FF"},{Min=2.85,Color="#6FA0FF"},{Min=3.8,Color="#C08BFF"},{Min=5.8,Color="#C8C8D0"},{Min=9.5,Color="#C0C0C8"},{Min=12,Color="#D8D8E0"},{Min=20,Color="#C8C8D0"}};
                         local function H(C)local K,w=-1/0,"#FFFFFF";
                             for l,l in ipairs(c)do if C+0.001>=l.Min then if l.Min>K then local c,C=l.Color,l.Min;
                                 K,w=C,c;
@@ -41702,7 +41708,7 @@ local SetupDiscordWebhookModule = function()
         Input = nil,
         Dot = "  " .. utf8.char(183) .. "  ",
         MaxSide = 200,
-        Logo = "https://media.discordapp.net/attachments/1181785068637790221/1551685385665380432/a6.png?ex=6ab2df20&is=6ab18da0&hm=5ca4b16854493c689912c068c29354752a0f2ea0490d5b22cbd9acf7d26ed7eb&=&format=webp&quality=lossless",
+        Logo = "rbxassetid://123931707434013",
         Emoji = {
             Value = "<:sae_value:1551645680718581871>",
             Size = "<:sae_size:1551645444285800558>",
@@ -42772,7 +42778,7 @@ local D;
 local D= PredictorState;
 local G,V=D.Paint, PredictorState;
 local D,P=V.Bold, PredictorState;
-local s,B,_,q,v,c,H,C,w,l,Q,n,x=P.Escape,2.6,0.6,3.3,1.2,2.6,0.7,0.3,0.95,0.0909,{idle={Title="IDLE",Color="#9AA3B5"},scan={Title="SCANNING",Color="#7FD8FF"},found={Title="FILTER EGG HERE",Color="#4DFF7A"},night={Title="NIGHT",Color="#9C8CFF"},rare={Title="WAITING",Color="#FF7AE0"},steal={Title="AUTO STEAL BUSY",Color="#FFC24D"},hop={Title="HOPPING SOON",Color="#FF9A3D"},joining={Title="JOINING SERVER",Color="#FF9A3D"},retry={Title="RETRYING",Color="#FF6B6B"},race={Title="RACING EVENT",Color="#FFD452"},star={Title="SHOOTING STAR",Color="#FFEE8C"}},{Slot={Text="ON NEST",Color="#4DFF7A"},Dropped={Text="DROPPED",Color="#FFC24D"},Carried={Text="BEING CARRIED",Color="#FF8A5C"},Mine={Text="YOU CARRY",Color="#7FD8FF"}};
+local s,B,_,q,v,c,H,C,w,l,Q,n,x=P.Escape,2.6,0.6,3.3,1.2,2.6,0.7,0.3,0.95,0.0909,{idle={Title="IDLE",Color="#9AA3B5"},scan={Title="SCANNING",Color="#7FD8FF"},found={Title="FILTER EGG HERE",Color="#4DFF7A"},night={Title="NIGHT",Color="#9C8CFF"},rare={Title="WAITING",Color="#D0D0D8"},steal={Title="AUTO STEAL BUSY",Color="#D4D4DC"},hop={Title="HOPPING SOON",Color="#C8C8D0"},joining={Title="JOINING SERVER",Color="#C8C8D0"},retry={Title="RETRYING",Color="#C4C4CC"},race={Title="RACING EVENT",Color="#D8D8E0"},star={Title="SHOOTING STAR",Color="#E4E4EC"}},{Slot={Text="ON NEST",Color="#4DFF7A"},Dropped={Text="DROPPED",Color="#D4D4DC"},Carried={Text="BEING CARRIED",Color="#C8C8D0"},Mine={Text="YOU CARRY",Color="#7FD8FF"}};
 local P,b,u,y={},0,0,0.06;
 local Fr=-1;
 local Or=-1;
@@ -43537,7 +43543,7 @@ end;
 local function m(L)O:Set({XScale=L.X.Scale,XOffset=L.X.Offset,YScale=L.Y.Scale,YOffset=L.Y.Offset});
 end;
 local O=Color3.fromRGB(58,255,55);
-local L=Color3.fromRGB(255,214,84);
+local L=Color3.fromRGB(196,203,217);
 local j=Color3.fromRGB(60,60,70);
 local X,U,a,g,M,f,T,h=Color3.fromRGB(150,150,158),false,{};
 local S,E,D,J,G,V=1,0,0;
@@ -43885,14 +43891,14 @@ end
 SetupWhiteScreen3DDisableModule()
 local SetupCustomMenuOverlayModule = function()
     local O=game:GetService("StarterGui");
-    local L,j,X,U,a=game:GetService("Stats"),0.5,"rbxassetid://90325592797235","rbxassetid://128961717706452",{Money="rbxassetid://119640363267627",Speed="rbxassetid://78137530993637",Eggs="rbxassetid://97499770821177",Pets="rbxassetid://112223455192501",Night="rbxassetid://123238464128459",Index="rbxassetid://72512465543867",Shop="rbxassetid://70598530577515",Fights="rbxassetid://135238935953633",Lab="rbxassetid://103838374075457",Race="rbxassetid://82857133407630",Wins="rbxassetid://116272961700800",Star="rbxassetid://118070800707365"};
+    local L,j,X,U,a=game:GetService("Stats"),0.5,"rbxassetid://90325592797235","rbxassetid://123931707434013",{Money="rbxassetid://119640363267627",Speed="rbxassetid://78137530993637",Eggs="rbxassetid://97499770821177",Pets="rbxassetid://112223455192501",Night="rbxassetid://123238464128459",Index="rbxassetid://72512465543867",Shop="rbxassetid://70598530577515",Fights="rbxassetid://135238935953633",Lab="rbxassetid://103838374075457",Race="rbxassetid://82857133407630",Wins="rbxassetid://116272961700800",Star="rbxassetid://118070800707365"};
     local g=Color3.fromRGB(120,255,90);
-    local M=Color3.fromRGB(255,214,84);
+    local M=Color3.fromRGB(196,203,217);
     local f=Color3.fromRGB(60,60,70);
     local T=Color3.fromRGB(232,232,246);
     Color3.fromRGB(77,255,122);
-    local h=Color3.fromRGB(255,194,77);
-    Color3.fromRGB(255,223,138);
+    local h=Color3.fromRGB(188,196,209);
+    Color3.fromRGB(214,222,236);
     local S,E={"","K","M","B","T","Qa","Qi","Sx","Sp","Oc","No","Dc"},{};
     for D,J in ipairs(S)do E[string.lower(J)]=10^((D-1)*3);
     end;
@@ -44311,7 +44317,7 @@ local function Y()local l;
                     end;
                     local S=y and q.Money and y-q.Money or 0;
                     return u or"-",S>0 and"+"..D(B(S)).."/h"or"";
-                end},{Id="Income",Icon=a.Shop,Colors={Color3.fromRGB(255,240,140),Color3.fromRGB(255,196,0)},Read=function()
+                end},{Id="Income",Icon=a.Shop,Colors={Color3.fromRGB(255,240,140),Color3.fromRGB(167,174,186)},Read=function()
                 local S=J("Money/s");
                 return S and"$"..D(S).."/s"or"-",S and"$"..D(S*3600).."/h"or"";
             end},{Id="Speed",Icon=a.Speed,Colors={Color3.fromRGB(120,255,240),Color3.fromRGB(0,220,255)},Read=function()
@@ -44327,9 +44333,9 @@ local function Y()local l;
     end;
     local J=S.Multiplier<100000 and tostring(math.floor(S.Multiplier+0.5))or D(S.Multiplier);
     return S.Name.."  x"..J,S.Note,S.Icon;
-end}}},{Id="Stealing",Column="Left",Colors={Color3.fromRGB(45,45,52),Color3.fromRGB(55,55,65)},Items={{Id="Eggs Stolen",Icon=a.Eggs,Colors={Color3.fromRGB(255,150,150),Color3.fromRGB(48,48,56)},Read=function()
+end}}},{Id="Stealing",Column="Left",Colors={Color3.fromRGB(45,45,52),Color3.fromRGB(55,55,65)},Items={{Id="Eggs Stolen",Icon=a.Eggs,Colors={Color3.fromRGB(197,204,218),Color3.fromRGB(48,48,56)},Read=function()
 return D(_.Count),q.Delivered>0 and"+"..q.Delivered.." this session"or"";
-end},{Id="Best Steal",Icon=a.Index,Colors={Color3.fromRGB(225,195,255),Color3.fromRGB(160,100,240)},Read=function()
+end},{Id="Best Steal",Icon=a.Index,Colors={Color3.fromRGB(231,240,255),Color3.fromRGB(160,100,240)},Read=function()
 local S=_.Best;
 if not(S)then return"None yet","",nil;
 end;
@@ -44346,9 +44352,9 @@ end};
 (function(O, I, ...) local d = table.pack(...);
     table.move(d, 1, d.n, I + 1, O) end) (n,0,x,b);
     Q.Items=n;
-    local z,S,J,V,B,q={Id="Status",Column="Center",Colors={Color3.fromRGB(255,204,0),Color3.fromRGB(255,150,30)},Items={{Id="Activity",Icon=a.Eggs,Wide=true,Colors={Color3.fromRGB(255,240,170),Color3.fromRGB(255,170,60)},Read=function()
+    local z,S,J,V,B,q={Id="Status",Column="Center",Colors={Color3.fromRGB(170,176,188),Color3.fromRGB(163,169,181)},Items={{Id="Activity",Icon=a.Eggs,Wide=true,Colors={Color3.fromRGB(255,240,170),Color3.fromRGB(176,183,196)},Read=function()
                     return l();
-                end}}},{Id="Events",Column="Right",Colors={Color3.fromRGB(255,212,82),Color3.fromRGB(255,150,40)}},{},{Id="Racing Event",Icon=a.Race,Colors={Color3.fromRGB(255,240,170),Color3.fromRGB(255,196,0)},Read=function()
+                end}}},{Id="Events",Column="Right",Colors={Color3.fromRGB(195,203,216),Color3.fromRGB(165,172,184)}},{},{Id="Racing Event",Icon=a.Race,Colors={Color3.fromRGB(255,240,170),Color3.fromRGB(167,174,186)},Read=function()
         local l=workspace:GetServerTimeNow();
         local u;
         local u= LocalPlayerRef;
@@ -44391,7 +44397,7 @@ pcall(function()
 end);
 local d,l=tostring(tonumber(k.Wins)or 0),D(tonumber(k.Tokens)or 0);
 return d,l.." trophies";
-end},{Id="Shooting Star",Icon=a.Star,Colors={Color3.fromRGB(255,250,200),Color3.fromRGB(255,220,90)},Read=function()
+end},{Id="Shooting Star",Icon=a.Star,Colors={Color3.fromRGB(255,250,200),Color3.fromRGB(199,207,220)},Read=function()
 local d;
 local d= HubState;
 local k=d.ShootingStar;
@@ -44410,15 +44416,15 @@ end};
     table.move(d, 1, d.n, I + 1, O) end) (J,0,V,B,q);
     S.Items=J;
     (function(O, I, ...) local d = table.pack(...);
-        table.move(d, 1, d.n, I + 1, O) end) (Y,0,G,K,Q,z,S,{Id="Collection",Column="Right",Colors={Color3.fromRGB(58,58,68),Color3.fromRGB(255,185,87)},Items={{Id="Pets",Icon=a.Pets,Colors={Color3.fromRGB(255,225,170),Color3.fromRGB(140,140,155)},Read=function()
+        table.move(d, 1, d.n, I + 1, O) end) (Y,0,G,K,Q,z,S,{Id="Collection",Column="Right",Colors={Color3.fromRGB(58,58,68),Color3.fromRGB(188,196,209)},Items={{Id="Pets",Icon=a.Pets,Colors={Color3.fromRGB(223,232,246),Color3.fromRGB(140,140,155)},Read=function()
                     local d=w();
                     return tostring(d.Pets or 0),tostring(d.PlacedPets or 0).." placed";
-                end},{Id="Eggs",Icon=a.Eggs,Colors={Color3.fromRGB(255,200,200),Color3.fromRGB(55,55,65)},Read=function()
+                end},{Id="Eggs",Icon=a.Eggs,Colors={Color3.fromRGB(225,233,248),Color3.fromRGB(55,55,65)},Read=function()
                 local d=w();
                 return tostring(d.Eggs or 0),string.format("%d ready  %d growing",c(),d.Growing or 0);
             end}}});
 local d={};
-G,S={Id="Top Pets",Colors={Color3.fromRGB(58,58,68),Color3.fromRGB(255,185,87)},List=function()
+G,S={Id="Top Pets",Colors={Color3.fromRGB(58,58,68),Color3.fromRGB(188,196,209)},List=function()
         return w().TopPets;
     end,Detail=function(k)
     return"$"..D(k.Rate).."/s",string.format("x%.2f",k.Size),nil;
@@ -44475,7 +44481,7 @@ return nil;
 end;
 local a,G;
 pcall(function()
-    G=Font.new("rbxassetid://12187365977",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
+    G=Font.new("rbxassetid://123931707434013",Enum.FontWeight.Bold,Enum.FontStyle.Normal);
     a=G;
 end);
 local V,q=false;
@@ -44636,7 +44642,7 @@ local function a()local G=workspace.CurrentCamera;
                             local er,Zr=E.Id,{Frame=Yr,Icon=ir,Value=Ar,Caption=zr,Badge=kr};
                             Zr.Title,Zr.Item,w[er]=string.upper(E.Id),E,Zr;
                         end;
-                        local E={Value={Color3.fromRGB(170,255,140),Color3.fromRGB(40,230,90)},Size={Color3.fromRGB(255,244,200),Color3.fromRGB(235,190,95)},Time={Color3.fromRGB(255,200,170),Color3.fromRGB(55,55,65)}};
+                        local E={Value={Color3.fromRGB(170,255,140),Color3.fromRGB(40,230,90)},Size={Color3.fromRGB(255,244,200),Color3.fromRGB(187,194,207)},Time={Color3.fromRGB(216,225,239),Color3.fromRGB(55,55,65)}};
                         local function ir(kr,Yr,zr,Ar)local er,Zr=y("Frame",{AutomaticSize=Enum.AutomaticSize.X,BackgroundTransparency=1,BorderSizePixel=0,LayoutOrder=zr,Size=UDim2.fromOffset(0,Ar+5),Visible=false},kr),E[Yr]or E.Value;
                             zr=e(er,true,Ar,{AutomaticSize=Enum.AutomaticSize.X,Size=UDim2.fromScale(0,1),TextXAlignment=Enum.TextXAlignment.Center,TextTruncate=Enum.TextTruncate.None});
                             Fr(zr,Zr[1],Zr[2],90);
@@ -44779,15 +44785,15 @@ local function a()local G=workspace.CurrentCamera;
             end;
             local function D()local P=y("Frame",{Active=true,AnchorPoint=Vector2.new(0.5,0),BackgroundColor3=Color3.fromRGB(20,18,24),BackgroundTransparency=0.12,BorderSizePixel=0,Size=UDim2.fromOffset(470,62)},c);
                 y("UICorner",{CornerRadius=UDim.new(0,16)},P);
-                Fr(y("UIStroke",{Color=Color3.new(1,1,1),Thickness=2.4,ApplyStrokeMode=Enum.ApplyStrokeMode.Border},P),Color3.fromRGB(255,196,60),Color3.fromRGB(50,50,58),0);
+                Fr(y("UIStroke",{Color=Color3.new(1,1,1),Thickness=2.4,ApplyStrokeMode=Enum.ApplyStrokeMode.Border},P),Color3.fromRGB(184,191,204),Color3.fromRGB(50,50,58),0);
                 y("ImageLabel",{BackgroundTransparency=1,Image=X,ImageTransparency=0.9,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.fromOffset(40,40),Size=UDim2.fromScale(1,1)},P);
                 table.insert(H,y("UIScale",{},P));
                 local X=y("Frame",{BackgroundColor3=Color3.fromRGB(30,24,30),BorderSizePixel=0,Position=UDim2.fromOffset(9,8),Size=UDim2.fromOffset(46,46)},P);
                 y("UICorner",{CornerRadius=UDim.new(0,12)},X);
-                Fr(y("UIStroke",{Color=Color3.new(1,1,1),Thickness=2},X),Color3.fromRGB(255,196,60),Color3.fromRGB(50,50,58),45);
+                Fr(y("UIStroke",{Color=Color3.new(1,1,1),Thickness=2},X),Color3.fromRGB(184,191,204),Color3.fromRGB(50,50,58),45);
                 local p=y("ImageLabel",{BackgroundTransparency=1,Image=U,ScaleType=Enum.ScaleType.Crop,Size=UDim2.fromScale(1,1)},X);
                 y("UICorner",{CornerRadius=UDim.new(0,12)},p);
-                Fr(e(P,true,24,{Text="A6 HUB",Position=UDim2.fromOffset(64,8),Size=UDim2.fromOffset(200,26)}),Color3.fromRGB(255,226,120),Color3.fromRGB(50,50,58),90);
+                Fr(e(P,true,24,{Text="A6 HUB",Position=UDim2.fromOffset(64,8),Size=UDim2.fromOffset(200,26)}),Color3.fromRGB(210,218,232),Color3.fromRGB(50,50,58),90);
                 e(P,false,12,{Text="FARM STATS  |  STEAL AN EGG",TextColor3=T,Position=UDim2.fromOffset(65,36),Size=UDim2.fromOffset(200,16)});
                 X=y("Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=0.82,BorderSizePixel=0,Position=UDim2.fromOffset(282,12),Size=UDim2.fromOffset(2,38)},P);
                 y("UICorner",{CornerRadius=UDim.new(1,0)},X);
@@ -44901,7 +44907,7 @@ local function G()X();
         end;
         table.insert(l,{Panel=d,Showcase=a,Cards=Y});
     end;
-    local d=A("Steal History","Left",{Color3.fromRGB(50,50,58),Color3.fromRGB(255,140,160)},2.5);
+    local d=A("Steal History","Left",{Color3.fromRGB(50,50,58),Color3.fromRGB(197,204,218)},2.5);
     y("UIListLayout",{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,6)},d.Body);
     er=d;
     table.clear(s);
@@ -45364,7 +45370,7 @@ local SetupPlotViewerModule = function()
     pcall(function()
         getgenv().A6AntiGuard=Z;
     end);
-    local R={Card=Color3.fromRGB(15,15,19),CardTop=Color3.fromRGB(24,22,28),Stroke=Color3.fromRGB(48,46,56),Text=Color3.fromRGB(240,238,244),AccentA=Color3.fromRGB(70,70,80),AccentB=Color3.fromRGB(140,140,155),Good=Color3.fromRGB(80,220,140),Work=Color3.fromRGB(255,190,70),Bad=Color3.fromRGB(55,55,65),Off=Color3.fromRGB(58,56,66)};
+    local R={Card=Color3.fromRGB(15,15,19),CardTop=Color3.fromRGB(24,22,28),Stroke=Color3.fromRGB(48,46,56),Text=Color3.fromRGB(240,238,244),AccentA=Color3.fromRGB(70,70,80),AccentB=Color3.fromRGB(140,140,155),Good=Color3.fromRGB(80,220,140),Work=Color3.fromRGB(185,192,205),Bad=Color3.fromRGB(55,55,65),Off=Color3.fromRGB(58,56,66)};
     local W={{Path={"GearGiver_Slap","Podium"},Offset=Vector3.new(-16.415,21.072,-6.106)},{Path={"World","Machines","RiftMachine","Rift","Meshes/VoidPortal_Cube.003"},Offset=Vector3.new(-26.776,1.75,18.665)},{Path={"__OBJECTS","Machines","RiftMachine","Rift","Meshes/VoidPortal_Cube.003"},Offset=Vector3.new(-26.776,1.75,18.665)}};
     local m,L,j,X,U=Vector3.new(528.7,70.57,-364.11),52,true,{},{AreaId=nil,SignalCarrying=false,WeldCarrying=false,Carrying=false,Active=false,Disguise=nil,FlashRequest=nil,FlashUntil=0};
     local function a()local g={};
@@ -45406,10 +45412,10 @@ local J=f("UIGradient",D,{Color=ColorSequence.new(R.Stroke,R.Stroke)});
 local G=f("Frame",E,{AnchorPoint=Vector2.new(0,0.5),Position=UDim2.new(0,10,0.5,0),Size=UDim2.fromOffset(36,36),BackgroundColor3=Color3.fromRGB(28,26,32),BorderSizePixel=0,ZIndex=2});
 f("UICorner",G,{CornerRadius=UDim.new(0,11)});
 local V=f("UIStroke",G,{Thickness=1.5,Color=R.Off,ApplyStrokeMode=Enum.ApplyStrokeMode.Border});
-local P=f("ImageLabel",G,{AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromScale(0.86,0.86),BackgroundTransparency=1,Image="rbxassetid://128961717706452",ImageTransparency=0.35,ScaleType=Enum.ScaleType.Crop,ZIndex=3});
+local P=f("ImageLabel",G,{AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.fromScale(0.5,0.5),Size=UDim2.fromScale(0.86,0.86),BackgroundTransparency=1,Image="rbxassetid://123931707434013",ImageTransparency=0.35,ScaleType=Enum.ScaleType.Crop,ZIndex=3});
 f("UICorner",P,{CornerRadius=UDim.new(0,8)});
 local p=f("UIScale",P,{Scale=1});
-f("UIGradient",f("TextLabel",E,{BackgroundTransparency=1,Position=UDim2.new(0,56,0,7),Size=UDim2.new(1,-112,0,15),Font=Enum.Font.BuilderSansExtraBold,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left,TextColor3=Color3.fromRGB(255,255,255),Text="A6 Hub",ZIndex=2}),{Color=ColorSequence.new(Color3.fromRGB(55,55,65),Color3.fromRGB(255,190,110))});
+f("UIGradient",f("TextLabel",E,{BackgroundTransparency=1,Position=UDim2.new(0,56,0,7),Size=UDim2.new(1,-112,0,15),Font=Enum.Font.BuilderSansExtraBold,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left,TextColor3=Color3.fromRGB(255,255,255),Text="A6 Hub",ZIndex=2}),{Color=ColorSequence.new(Color3.fromRGB(55,55,65),Color3.fromRGB(197,204,218))});
 f("TextLabel",E,{BackgroundTransparency=1,Position=UDim2.new(0,56,0,22),Size=UDim2.new(1,-112,0,20),Font=Enum.Font.GothamBlack,TextSize=15,TextXAlignment=Enum.TextXAlignment.Left,TextColor3=R.Text,Text="Anti Guard",ZIndex=2});
 local s=f("TextButton",E,{AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,-12,0.5,0),Size=UDim2.fromOffset(42,22),BackgroundColor3=Color3.fromRGB(255,255,255),AutoButtonColor=false,BorderSizePixel=0,Text="",ZIndex=2});
 f("UICorner",s,{CornerRadius=UDim.new(1,0)});
@@ -46130,9 +46136,9 @@ SetupPlotViewerModule()
 local SetupDiscordInfoTab = function()
     local F;
     local F= MainWindow;
-    local O,o,N,t,i,k,Y,z,A,e,Z,R,W,m,L,j,X,U,a=F:CreateTab({Name="Discord",Side="Right",SectionsExpanded=true}):CreateSection({Name="Community",Expanded=true}),"https://discord.gg/CJK4bs2mgT","discord.gg/CJK4bs2mgT","rbxassetid://128961717706452","180K+",0.5,0.0909,0.2,5.4,4.2,5.2,6,3.6,6.4,2,11.4,3,0.35,{{Color="#FF6A55",Title="New Scripts &amp; Updates",Text="Patch notes and new game scripts are posted there first."},{Color="#FFB054",Title="Giveaways",Text="Member giveaways and events are announced in the server."},{Color="#9AA3FF",Title="Support",Text="Ask for help, report bugs and get answers from the team."},{Color="#6EE49C",Title="Suggestions",Text="Request features and vote on what gets added next."}};
+    local O,o,N,t,i,k,Y,z,A,e,Z,R,W,m,L,j,X,U,a=F:CreateTab({Name="Discord",Side="Right",SectionsExpanded=true}):CreateSection({Name="Community",Expanded=true}),"https://discord.gg/4s3aNPFNj","discord.gg/4s3aNPFNj","rbxassetid://123931707434013","11 members · 7 online",0.5,0.0909,0.2,5.4,4.2,5.2,6,3.6,6.4,2,11.4,3,0.35,{{Color="#C4C4CC",Title="New Scripts &amp; Updates",Text="Patch notes and new game scripts are posted there first."},{Color="#D0D0D8",Title="Giveaways",Text="Member giveaways and events are announced in the server."},{Color="#9AA3FF",Title="Support",Text="Ask for help, report bugs and get answers from the team."},{Color="#6EE49C",Title="Suggestions",Text="Request features and vote on what gets added next."}};
     local g=j+#a*3.35+2.4+0.4;
-    local M=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,218,96)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,152,60)),ColorSequenceKeypoint.new(1,Color3.fromRGB(55,55,65))});
+    local M=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(200,208,221)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(171,178,190)),ColorSequenceKeypoint.new(1,Color3.fromRGB(55,55,65))});
     local f,T,h=ColorSequence.new(Color3.fromRGB(74,24,18),Color3.fromRGB(14,11,15)),{Perks={}},0;
     local function S()local E=setclipboard or toclipboard;
         local D,J=type(E)=="function"and pcall(E,o)or false;
@@ -46171,7 +46177,7 @@ for h,h in ipairs(T.Perks)do h.Frame.Set({Width=E});
 end;
 T.Tip.Set({Width=E});
 end;
-local function h(E)T.Hero=E:Frame({Name="Hero",X=z,Y=z,Width=14,Height=A,Background="#FFFFFF",Gradient=f,GradientRotation=0,Corner=0.35,StrokeColor="#FF6A40",StrokeThickness=Y,StrokeTransparency=0.55});
+local function h(E)T.Hero=E:Frame({Name="Hero",X=z,Y=z,Width=14,Height=A,Background="#FFFFFF",Gradient=f,GradientRotation=0,Corner=0.35,StrokeColor="#C0C0C8",StrokeThickness=Y,StrokeTransparency=0.55});
     T.Logo=E:Image({Parent=T.Hero,X=0.5,Y=(A-e)/2,Width=e,Height=e,Image=t});
     T.Title=E:Text({Parent=T.Hero,X=Z,Y=0.45,Width=1,Height=1.6,Scale=1.45,Wrap=false,Text="<b>A6 Hub</b>",Gradient=M,GradientRotation=0,TextStrokeTransparency=1});
     T.Subtitle=E:Text({Parent=T.Hero,X=Z,Y=2.1,Width=1,Height=1,Wrap=false,Text="Official Discord Community",Color="#DCDCE8"});
@@ -46532,7 +46538,7 @@ end;
 end
 -- SetupVenyxPromoTab() -- removed
 local SetupFloatingQuickButtonsModule = function()
-    local F,i,k,Y="rbxassetid://128961717706452",56,0.035,8;
+    local F,i,k,Y="rbxassetid://123931707434013",56,0.035,8;
     local z=TweenInfo.new(0.08,Enum.EasingStyle.Quad,Enum.EasingDirection.Out);
     local A=TweenInfo.new(0.14,Enum.EasingStyle.Back,Enum.EasingDirection.Out);
     local e,Z,R,W,m=game:GetService("TweenService"),{};
